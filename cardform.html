@@ -5,7 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cardform</title>
 </head>
+<style>
+        @font-face {
+            font-family: 'Montserrat-Regular';
+            src: url('Montserrat-Regular.ttf') format('truetype');
+        }
+    .maincontainer {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        padding-top: 10px;
+        width: 600px;
+        border-radius: 12px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        padding-left: 30px;
+        background-color: #A3D1D1;
+        display: flex;
+        flex-direction: column;
+    }
+    .header {
+        color: white;
+        letter-spacing: 1.5px;
+    }
+    h4 {
+        background-color: #E65C00;
+        margin-left: -55px;
+        padding-left: 55px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        font-size: 18px;
+        margin-right: 150px;
+
+    }
+    .datecvv {
+        display: flex;
+        width: 320px;
+        justify-content: space-between;
+
+    }
+    .last{
+        display: flex;
+        width: 340px;
+        justify-content: space-between;
+    }
+    p {
+        font-size: 14px;
+    }
+    input[type="text"] {
+    font-size: 18px; /* Увеличение размера шрифта внутри input */
+    border: none; /* Удаление границы */
+    border-bottom: 1px solid gray; /* Добавление нижней границы */
+    outline: none;
+    background-color: #ADDBDB; /* #B8E6E6 */
+}
+.width {
+    width: 320px;
+    padding: 10px;
+}
+.cvv {
+    width: 30%;
+    height: 34px;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+/* Стилизация placeholder'а */
+input[type="text"]::placeholder {
+    font-size: 18px; /* Увеличение размера шрифта текста-подсказки */
+}
+select {
+    font-size: 18px; /* Увеличение размера шрифта внутри select */
+    border: none; /* Удаление границы */
+    border-bottom: 1px solid gray; /* Добавление нижней границы */
+    outline: none; /* Убирает фокусную рамку в некоторых браузерах */
+    -webkit-appearance: none; /* Убирает стандартное оформление в WebKit-браузерах */
+    -moz-appearance: none; /* Убирает стандартное оформление в Firefox */
+    appearance: none; /* Современное свойство для удаления стандартного оформления */
+    background-color: #ADDBDB; /* Фон делаем прозрачным */
+    padding: 10px; /* Добавление внутренних отступов */
+    margin: 5px 0; /* Добавление внешних отступов сверху и снизу */
+    color: gray;
+    width: 30%;
+}
+
+/* Для добавления иконки стрелки можно использовать псевдоэлементы или фоновое изображение, например: */
+select {
+    /* ... другие стили ... */
+    background-image: url('dropdown-arrow.svg'); /* Путь к вашей стрелке */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Расположение стрелки внутри select */
+    padding-right: 30px; /* Дополнительный padding, чтобы текст не перекрывал стрелку */
+}
+
+
+</style>
 <body>
+    <div class="maincontainer">
+        <div class="header">
+        <h4>CREDIT CARD DETAILS</h4>
+        </div>
+        <p>Card Number</p>
+        <input class="width" type="text" id="cardNumber" name="cardNumber" pattern="[0-9]{13,16}" placeholder="1234 5678 9012 3456" required>
+        <p>Name On Card</p>
+        <input class="width" type="text" id="nameOnCard" name="nameOnCard" placeholder="Name Surname" required>
+        <div class="datecvv">
+            <p>Expiry Date</p>
+            <P>CVV / CVN</P>
+        </div>
+        <div class="last">
+        <select name="expMonth" id="expMonth" required>
+            <option value="" disabled selected>Month</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        <select id="expYear" required>
+            <option value="" disabled selected>Year</option>
+        </select>
+        <input class="cvv" type="text" id="cvv" name="cvv" pattern="[0-9]{3,4}" placeholder="***" required>
+        </div>
+    </div>
+
+    <script>
+        let select = document.getElementById('expYear');
+        let currentYear = new Date().getFullYear(); // Получаем текущий год
+        for (let y = currentYear; y <= currentYear + 10; y++) {
+            select.options.add(new Option(y, y));
+        }
+    </script>
+
     
 </body>
 </html>
