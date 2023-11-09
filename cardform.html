@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +25,13 @@
         display: flex;
         flex-direction: column;
     }
+
     .header {
         color: white;
         letter-spacing: 1.5px;
         margin-bottom: 10px;
     }
+
     h4 {
         background-color: #E65C00;
         margin-left: -55px;
@@ -39,6 +42,7 @@
         margin-right: 150px;
 
     }
+
     .datecvv {
         display: flex;
         width: 320px;
@@ -46,11 +50,13 @@
         margin-top: 10px;
 
     }
-    .last{
+
+    .last {
         display: flex;
         width: 340px;
         justify-content: space-between;
     }
+
     p {
         font-size: 14px;
         padding-top: 0;
@@ -59,50 +65,58 @@
         margin-bottom: 7px;
         color: #617d7d;
     }
+
     input[type="text"] {
-    font-size: 18px;
-    border: none;
-    border-bottom: 1px solid #617d7d;
-    outline: none;
-    background-color: #ADDBDB;
-}
-.width {
-    width: 320px;
-    padding: 10px;
-    margin-bottom: 18px;
-}
-.cvv {
-    width: 30%;
-    height: 34px;
-    padding-top: 5px;padding-left: 10px;
-    margin-top: 5px;
-}
-input[type="text"]::placeholder {
-    font-size: 18px;
-    color: #82a7a7;
-}
-select {
-    font-size: 18px;
-    border: none;
-    border-bottom: 1px solid #617d7d;
-    outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: #ADDBDB;
-    padding: 10px;
-    margin: 5px 0;
-    color: #82a7a7;
-    width: 30%;
-}
+        font-size: 18px;
+        border: none;
+        border-bottom: 1px solid #617d7d;
+        outline: none;
+        background-color: #ADDBDB;
+    }
+
+    .width {
+        width: 320px;
+        padding: 10px;
+        margin-bottom: 18px;
+    }
+
+    .cvv {
+        width: 30%;
+        height: 34px;
+        padding-top: 5px;
+        padding-left: 10px;
+        margin-top: 5px;
+    }
+
+    input[type="text"]::placeholder {
+        font-size: 18px;
+        color: #82a7a7;
+    }
+
+    select {
+        font-size: 18px;
+        border: none;
+        border-bottom: 1px solid #617d7d;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: #ADDBDB;
+        padding: 10px;
+        margin: 5px 0;
+        color: #82a7a7;
+        width: 30%;
+    }
 </style>
+
 <body>
     <div class="maincontainer">
         <div class="header">
-        <h4>CREDIT CARD DETAILS</h4>
+            <h4>CREDIT CARD DETAILS</h4>
         </div>
         <p>Card Number</p>
-        <input class="width" type="text" id="cardNumber" name="cardNumber" pattern="[0-9]{13,16}" placeholder="1234 5678 9012 3456" required>
+        <input class="width" type="text" id="cardNumber" name="cardNumber" pattern="[0-9]{13,16}"
+            placeholder="1234 5678 9012 3456" required>
         <p>Name On Card</p>
         <input class="width" type="text" id="nameOnCard" name="nameOnCard" placeholder="Name Surname" required>
         <div class="datecvv">
@@ -110,25 +124,25 @@ select {
             <P>CVV / CVN</P>
         </div>
         <div class="last">
-        <select name="expMonth" id="expMonth" required>
-            <option value="" disabled selected>Month</option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select>
-        <select id="expYear" required>
-            <option value="" disabled selected>Year</option>
-        </select>
-        <input class="cvv" type="text" id="cvv" name="cvv" pattern="[0-9]{3,4}" placeholder="***" required>
+            <select name="expMonth" id="expMonth" required>
+                <option value="" disabled selected>Month</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select id="expYear" required>
+                <option value="" disabled selected>Year</option>
+            </select>
+            <input class="cvv" type="text" id="cvv" name="cvv" pattern="[0-9]{3,4}" placeholder="***" required>
         </div>
     </div>
 
@@ -140,6 +154,7 @@ select {
         }
     </script>
 
-    
+
 </body>
+
 </html>
