@@ -1,11 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>checkboxes</title>
+    <style>
+        .maincontainer {
+            width: 700px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #F5F5F5;
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            padding-left: 25px;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+
+        }
+
+        .validation-input {
+            padding: 10px;
+            border: solid 1px;
+            border-radius: 3px;
+            padding-left: 10px;
+            width: 180px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .valid-text {
+            color: green;
+            border-color: green;
+        }
+
+        .valid-text:focus {
+            outline: none;
+            border-color: green;
+            box-shadow: 0 0 5px green;
+        }
+
+        .invalid-text:focus {
+            outline: none;
+            border-color: red;
+            box-shadow: 0 0 5px red !important;
+        }
+
+        .validation-input:focus {
+            outline: none;
+            border-color: #ccc;
+            box-shadow: 0 0 5px #ccc;
+        }
+
+
+        .invalid-text {
+            color: red;
+            border-color: red;
+        }
+
+        .gender-selector {
+            font-size: 12px;
+            display: inline-flex;
+            padding-bottom: 10px;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-dot {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            border: 1px solid green;
+            position: relative;
+            display: inline-block;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        .radio-option {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .radio-option input[type="radio"]:checked+.radio-dot {
+            border: 1px solid #4CAF50;
+        }
+
+        .radio-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .radio-option input[type="radio"]:checked+.radio-dot::after {
+            opacity: 1;
+            background-color: #4CAF50;
+        }
+
+        .btn {
+            padding: 7px 20px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            margin-right: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-active {
+            background-color: #4CAF50;
+        }
+
+        .btn-active:hover {
+            background-color: #45a049;
+        }
+
+        .btn-hover {
+            background-color: #007800;
+        }
+
+        .btn-hover:hover {
+            background-color: darkgreen;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+        }
+
+        .btn-danger:hover {
+            background-color: #da190b;
+        }
+
+        .btn-hoverred {
+            background-color: #a70000;
+        }
+
+        .btn-hoverred:hover {
+            background-color: darkred;
+        }
+
+        .btn-disabled {
+            background-color: gray;
+            color: white;
+        }
+
+        .btn-disabled:hover {
+            background-color: #8c8c8c;
+        }
+
+        .btn-circle {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            line-height: 30px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .buttons {
+            display: inline-flex;
+            margin-bottom: 15px;
+        }
+
+        .gender {
+            padding-top: 2px;
+        }
+
+        .switches-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .switch-label {
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .switch {
+            display: none;
+        }
+
+        .switch+.switch-slider {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            background-color: white;
+            border: 2px solid #41ad49;
+            border-radius: 8px;
+            margin-right: 10px;
+            vertical-align: middle;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .switch+.switch-slider:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 21px;
+            height: 21px;
+            background-color: #41ad49;
+            border-radius: 4px;
+            transition: left 0.2s, background-color 0.2s;
+        }
+
+        .switch:checked+.switch-slider:before {
+            left: 27px;
+            background-color: #e44061;
+        }
+
+        .switch:checked+.switch-slider {
+            border-color: #e44061;
+        }
+
+        .text-area-container textarea {
+            width: 450px;
+            height: 100px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .text-area-container textarea::placeholder {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .text-area-container textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="maincontainer">
+        <h4>Inputs</h4>
+        <div class="inputscontainer">
+            <input class="validation-input" type="text" id="enterText" name="enterText" pattern="[0-9]{13,16}"
+                placeholder="Enter some text" required>
+            <input class="validation-input valid-text" type="text" value="valid text" readonly>
+            <input class="validation-input invalid-text" type="text" value="invalid text" readonly>
+        </div>
+        <h4>Check boxes</h4>
+        <div class="cb">
+            <div class="switches-container">
+                <input type="checkbox" id="switch1" class="switch">
+                <label for="switch1" class="switch-slider"></label>
+                <label for="switch1" class="switch-label">Subscribe1</label>
+
+                <input type="checkbox" id="switch2" class="switch" checked>
+                <label for="switch2" class="switch-slider"></label>
+                <label for="switch2" class="switch-label">Subscribe2</label>
+            </div>
+        </div>
+        <h4>Radio buttons</h4>
+        <div class="gender-selector">
+            <span class="gender">Gender:</span>
+            <label class="radio-option">
+                <input type="radio" name="gender" value="male" checked>
+                <span class="radio-dot"></span>
+                <span class="radio-label">Male</span>
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="gender" value="female">
+                <span class="radio-dot"></span>
+                <span class="radio-label">Female</span>
+            </label>
+        </div>
+        <h4>Buttons</h4>
+        <div class="buttons">
+            <button class="btn btn-active">Active</button>
+            <button class="btn btn-hover">Hover</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-hoverred">Hover</button>
+            <button class="btn btn-disabled">Disabled</button>
+            <button class="btn btn-circle btn-active">+</button>
+            <button class="btn btn-circle btn-danger">-</button>
+        </div>
+        <h4>Text area</h4>
+        <div class="text-area-container">
+            <textarea id="custom-text-area" placeholder="Enter some text..."></textarea>
+        </div>
+    </div>
 </body>
+
 </html>
