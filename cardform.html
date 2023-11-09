@@ -6,15 +6,16 @@
     <title>cardform</title>
 </head>
 <style>
-        @font-face {
-            font-family: 'Montserrat-Regular';
-            src: url('Montserrat-Regular.ttf') format('truetype');
-        }
     .maincontainer {
+        background-image: url("moon_flag.png");
+        background-repeat: no-repeat;
+        background-size: 330px;
+        background-position: 133% 165%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 80px;
         padding-top: 10px;
+        padding-bottom: 65px;
         width: 600px;
         border-radius: 12px;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -26,6 +27,7 @@
     .header {
         color: white;
         letter-spacing: 1.5px;
+        margin-bottom: 10px;
     }
     h4 {
         background-color: #E65C00;
@@ -41,6 +43,7 @@
         display: flex;
         width: 320px;
         justify-content: space-between;
+        margin-top: 10px;
 
     }
     .last{
@@ -50,53 +53,48 @@
     }
     p {
         font-size: 14px;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 7px;
+        color: #617d7d;
     }
     input[type="text"] {
-    font-size: 18px; /* Увеличение размера шрифта внутри input */
-    border: none; /* Удаление границы */
-    border-bottom: 1px solid gray; /* Добавление нижней границы */
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #617d7d;
     outline: none;
-    background-color: #ADDBDB; /* #B8E6E6 */
+    background-color: #ADDBDB;
 }
 .width {
     width: 320px;
     padding: 10px;
+    margin-bottom: 18px;
 }
 .cvv {
     width: 30%;
     height: 34px;
-    padding-top: 5px;
+    padding-top: 5px;padding-left: 10px;
     margin-top: 5px;
 }
-/* Стилизация placeholder'а */
 input[type="text"]::placeholder {
-    font-size: 18px; /* Увеличение размера шрифта текста-подсказки */
+    font-size: 18px;
+    color: #82a7a7;
 }
 select {
-    font-size: 18px; /* Увеличение размера шрифта внутри select */
-    border: none; /* Удаление границы */
-    border-bottom: 1px solid gray; /* Добавление нижней границы */
-    outline: none; /* Убирает фокусную рамку в некоторых браузерах */
-    -webkit-appearance: none; /* Убирает стандартное оформление в WebKit-браузерах */
-    -moz-appearance: none; /* Убирает стандартное оформление в Firefox */
-    appearance: none; /* Современное свойство для удаления стандартного оформления */
-    background-color: #ADDBDB; /* Фон делаем прозрачным */
-    padding: 10px; /* Добавление внутренних отступов */
-    margin: 5px 0; /* Добавление внешних отступов сверху и снизу */
-    color: gray;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid #617d7d;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #ADDBDB;
+    padding: 10px;
+    margin: 5px 0;
+    color: #82a7a7;
     width: 30%;
 }
-
-/* Для добавления иконки стрелки можно использовать псевдоэлементы или фоновое изображение, например: */
-select {
-    /* ... другие стили ... */
-    background-image: url('dropdown-arrow.svg'); /* Путь к вашей стрелке */
-    background-repeat: no-repeat;
-    background-position: right 10px center; /* Расположение стрелки внутри select */
-    padding-right: 30px; /* Дополнительный padding, чтобы текст не перекрывал стрелку */
-}
-
-
 </style>
 <body>
     <div class="maincontainer">
@@ -136,7 +134,7 @@ select {
 
     <script>
         let select = document.getElementById('expYear');
-        let currentYear = new Date().getFullYear(); // Получаем текущий год
+        let currentYear = new Date().getFullYear();
         for (let y = currentYear; y <= currentYear + 10; y++) {
             select.options.add(new Option(y, y));
         }
